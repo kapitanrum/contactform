@@ -7,17 +7,17 @@ Spring, Mojarra, Joinfaces, Primefaces, JUnit, Mockito, H2
 
 ## Co se může dál řešit
 - favicon
-- resource bundle (vícejazyčnost)
-- logger ve všech třídách
-- templatování v JSF
-- pokročilejší flow mezi stránkami
-- implementace springsecurity
-- error pages
+- Resource bundle / MessageSource
+- Logger - detailnější logování
+- Templatování v JSF
+- Pokročilejší flow mezi stránkami
+- Implementace springsecurity
+- Error pages
 - Cascade styles (scss)
-- vytvoření executable jar (konfigurace v maven)
-- použití JSR303 (validace) - definovat na DTO objektech
-- implementace persistentní databáze (zatím použita memory database)
-- lepší pokrytí unit testy (zatím pouze ukázka)
+- Použití JSR303 (validace) - definovat na DTO objektech
+- Implementace persistentní databáze (zatím použita memory database)
+- Lepší pokrytí unit testy (zatím pouze ukázka)
+- Použití object mapping frameworku
 
 ## Kompilace
 ```
@@ -28,6 +28,11 @@ mvn clean package
 ```
 mvn spring-boot:run
 ```
+nebo
+```
+java -jar contact-form-1.0.0-SNAPSHOT.jar
+```
+
 
 ## Zobrazení aplikace
 - Pro zobrazení kontaktního formuláře přejděte v prohlížeči na uri: http://localhost:8080

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Contact us</title>
+</h:head>
+
+<h:body>
+    <c:set var="alphaKeyFilter" value="/[a-zÀ-ž]/i"/>
+    <c:set var="alphaRegExp" value="^[a-zA-ZÀ-ž]*$"/>
+    <h:form id="form">
+        <p:panel header="Contact us">
+            <h:panelGrid columns="1">
+                <p:outputLabel value="Kind of Request" for="request-kind"/>
+                <h:panelGrid columns="2">
+                    <p:selectOneMenu id="request-kind" value="#{contactFormBean.contactUs.requestKind}"
+                                     converter="#{requestKindConverter}">
+                        <f:selectItems value="#{contactFormBean.requestKindList}" var="item" itemLabel="${item.text}"/>
+                    </p:selectOneMenu>
+                    <p:message for="request-kind"/>
+                </h:panelGrid>
+
+                <p:outputLabel value="Policy Number" for="policy-number"/>
+                <h:panelGrid columns="2">
+                    <p:inputText id="policy-number" value="#{contactFormBean.contactUs.policyNumber}">
+                        <f:validateRegex pattern="^[a-zA-Z0-9]*$"/>
+                    </p:inputText>
+                    <p:message for="policy-number"/>
+                </h:panelGrid>
+
+
+                <p:outputLabel value="Name" for="first-name"/>
+                <h:panelGrid columns="2">
+                    <p:inputText id="first-name" value="#{contactFormBean.contactUs.firstName}">
+                        <f:validateRegex pattern="#{alphaRegExp}"/>
+                        <p:keyFilter regEx="#{alphaKeyFilter}"/>
+                    </p:inputText>
+                    <p:message for="first-name"/>
+                </h:panelGrid>
+
+                <p:outputLabel value="Surname" for="second-name"/>
+                <h:panelGrid columns="2">
+                    <p:inputText id="second-name" value="#{contactFormBean.contactUs.secondName}">
+                        <f:validateRegex pattern="#{alphaRegExp}"/>
+                        <p:keyFilter regEx="#{alphaKeyFilter}"/>
+                    </p:inputText>
+                    <p:message for="second-name"/>
+                </h:panelGrid>
+
+                <p:outputLabel value="Your request" for="request-text"/>
+                <h:panelGrid columns="2">
+
+                    <p:inputTextarea id="request-text" rows="5" cols="30" counter="display"
+                                     maxlength="#{contactFormBean.requestTextMaxSize}"
+                                     counterTemplate="{0} chars left" autoResize="false"
+                                     value="#{contactFormBean.contactUs.requestText}"
+                                     required="true"
+                    />
+                    <p:message for="request-text"/>
+                </h:panelGrid>
+                <h:outputText id="display"/>
+
+                <p:commandButton value="Send request"
+                                 action="#{contactFormBean.send()}"
+                                 process="@form"
+                                 />
+            </h:panelGrid>
+        </p:panel>
+
+    </h:form>
+</h:body>
+</html>
