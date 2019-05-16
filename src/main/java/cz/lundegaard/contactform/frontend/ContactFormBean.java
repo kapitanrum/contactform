@@ -3,7 +3,6 @@ package cz.lundegaard.contactform.frontend;
 import cz.lundegaard.contactform.service.ContactFormService;
 import cz.lundegaard.contactform.service.dto.ContactFormDto;
 import cz.lundegaard.contactform.service.dto.RequestKindDto;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
@@ -18,7 +17,7 @@ public class ContactFormBean {
     @Inject
     private ContactFormService contactUsService;
 
-    private ContactFormDto contactUs = new ContactFormDto();
+    private ContactFormDto contactUs;
     /**
      * Codelist for selectbox
      */
@@ -27,6 +26,7 @@ public class ContactFormBean {
     @PostConstruct
     private void init() {
         requestKindList = contactUsService.getRequestKindList();
+        contactUs = new ContactFormDto();
     }
 
     public List<RequestKindDto> getRequestKindList() {

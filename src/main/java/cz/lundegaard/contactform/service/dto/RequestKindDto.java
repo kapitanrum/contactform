@@ -1,5 +1,7 @@
 package cz.lundegaard.contactform.service.dto;
 
+import java.util.Objects;
+
 /**
  * Request kind
  */
@@ -9,6 +11,8 @@ public class RequestKindDto {
     private String code;
     private String text;
 
+    public RequestKindDto() {
+    }
 
     public RequestKindDto(Long id, String code, String text) {
         this.id = id;
@@ -32,15 +36,14 @@ public class RequestKindDto {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         RequestKindDto that = (RequestKindDto) o;
-
-        return id.equals(that.id);
-
+        return Objects.equals(id, that.id) &&
+                Objects.equals(code, that.code) &&
+                Objects.equals(text, that.text);
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return Objects.hash(id, code, text);
     }
 }
