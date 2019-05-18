@@ -6,30 +6,29 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Result</title>
+    <title>#{msg['contactform.title']} - #{msg['common.result']}</title>
 </h:head>
 
 <h:body>
-    <p:panel header="Sent">
+    <p:panel header="#{msg['contactform.title']} - #{msg['common.result']}">
         <h:panelGrid columns="2">
-            <p:outputLabel value="Kind of Request:"/>
+            <p:outputLabel value="#{msg['contactform.kind_of_request']}:"/>
             <h:outputText value="#{contactFormBean.contactUs.requestKind.text}"/>
 
-            <p:outputLabel value="Policy Number:"/>
+            <p:outputLabel value="#{msg['contactform.policy_number']}:"/>
             <h:outputText value="#{contactFormBean.contactUs.policyNumber}"/>
 
-
-            <p:outputLabel value="Name:"/>
+            <p:outputLabel value="#{msg['contactform.first_name']}:"/>
             <h:outputText value="#{contactFormBean.contactUs.firstName}"/>
 
-            <p:outputLabel value="Surname:"/>
+            <p:outputLabel value="#{msg['contactform.second_name']}:"/>
             <h:outputText value="#{contactFormBean.contactUs.secondName}"/>
 
-            <p:outputLabel value="Your request:"/>
+            <p:outputLabel value="#{msg['contactform.your_request']}:"/>
             <h:outputText value="#{contactFormBean.contactUs.requestText}"/>
 
             <h:form id="form">
-                <p:commandButton value="Return" action="#{contactFormBean.returnToForm()}"/>
+                <p:commandButton value="#{msg['button.return']}" action="#{contactFormBean.returnToForm()}"/>
             </h:form>
         </h:panelGrid>
     </p:panel>

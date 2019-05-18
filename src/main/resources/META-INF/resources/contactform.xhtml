@@ -8,25 +8,25 @@
       xmlns:p="http://primefaces.org/ui">
 
 <h:head>
-    <title>Contact us</title>
+    <title>#{msg['contactform.title']}</title>
 </h:head>
 
 <h:body>
     <c:set var="alphaKeyFilter" value="/[a-zÀ-ž]/i"/>
     <c:set var="alphaRegExp" value="^[a-zA-ZÀ-ž]*$"/>
     <h:form id="form">
-        <p:panel header="Contact us">
+        <p:panel header="#{msg['contactform.title']}">
             <h:panelGrid columns="1">
-                <p:outputLabel value="Kind of Request" for="request-kind"/>
+                <p:outputLabel value="#{msg['contactform.kind_of_request']}" for="request-kind"/>
                 <h:panelGrid columns="2">
-                    <p:selectOneMenu id="request-kind" value="#{contactFormBean.contactUs.requestKind}"
-                                     converter="#{requestKindConverter}">
-                        <f:selectItems value="#{contactFormBean.requestKindList}" var="item" itemLabel="${item.text}"/>
-                    </p:selectOneMenu>
-                    <p:message for="request-kind"/>
-                </h:panelGrid>
+                <p:selectOneMenu id="request-kind" value="#{contactFormBean.contactUs.requestKind}"
+                                 converter="#{requestKindConverter}">
+                    <f:selectItems value="#{contactFormBean.requestKindList}" var="item" itemLabel="${item.text}"/>
+                </p:selectOneMenu>
+                <p:message for="request-kind"/>
+            </h:panelGrid>
 
-                <p:outputLabel value="Policy Number" for="policy-number"/>
+                <p:outputLabel value="#{msg['contactform.policy_number']}" for="policy-number"/>
                 <h:panelGrid columns="2">
                     <p:inputText id="policy-number" value="#{contactFormBean.contactUs.policyNumber}">
                         <f:validateRegex pattern="^[a-zA-Z0-9]*$"/>
@@ -35,38 +35,31 @@
                 </h:panelGrid>
 
 
-                <p:outputLabel value="Name" for="first-name"/>
+                <p:outputLabel value="#{msg['contactform.first_name']}" for="first-name"/>
                 <h:panelGrid columns="2">
-                    <p:inputText id="first-name" value="#{contactFormBean.contactUs.firstName}">
-                        <f:validateRegex pattern="#{alphaRegExp}"/>
-                        <p:keyFilter regEx="#{alphaKeyFilter}"/>
-                    </p:inputText>
+                    <p:inputText id="first-name" value="#{contactFormBean.contactUs.firstName}"/>
                     <p:message for="first-name"/>
                 </h:panelGrid>
 
-                <p:outputLabel value="Surname" for="second-name"/>
+                <p:outputLabel value="#{msg['contactform.second_name']}" for="second-name"/>
                 <h:panelGrid columns="2">
-                    <p:inputText id="second-name" value="#{contactFormBean.contactUs.secondName}">
-                        <f:validateRegex pattern="#{alphaRegExp}"/>
-                        <p:keyFilter regEx="#{alphaKeyFilter}"/>
-                    </p:inputText>
+                    <p:inputText id="second-name" value="#{contactFormBean.contactUs.secondName}"/>
                     <p:message for="second-name"/>
                 </h:panelGrid>
 
-                <p:outputLabel value="Your request" for="request-text"/>
+                <p:outputLabel value="#{msg['contactform.your_request']}" for="request-text"/>
                 <h:panelGrid columns="2">
 
                     <p:inputTextarea id="request-text" rows="5" cols="30" counter="display"
                                      maxlength="#{contactFormBean.requestTextMaxSize}"
-                                     counterTemplate="{0} chars left" autoResize="false"
+                                     counterTemplate="{0} #{msg['contactform.chars_left']}" autoResize="false"
                                      value="#{contactFormBean.contactUs.requestText}"
-                                     required="true"
                     />
                     <p:message for="request-text"/>
                 </h:panelGrid>
                 <h:outputText id="display"/>
 
-                <p:commandButton value="Send request"
+                <p:commandButton value="#{msg['button.send_request']}"
                                  action="#{contactFormBean.send()}"
                                  process="@form"
                                  update="@form"

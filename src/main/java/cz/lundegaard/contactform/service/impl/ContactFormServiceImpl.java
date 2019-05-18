@@ -14,6 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 import javax.inject.Inject;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -34,7 +35,7 @@ public class ContactFormServiceImpl implements ContactFormService {
     private RequestKindRepository requestKindRepository;
 
     @Override
-    public void save(ContactFormDto contactFormDto) {
+    public void save(@Valid ContactFormDto contactFormDto) {
         contactFormRepository.save(toEntity(contactFormDto));
         LOG.info("Persisted object: " + contactFormDto.toString());
     }

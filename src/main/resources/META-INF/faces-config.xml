@@ -4,6 +4,11 @@
               xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd"
               version="2.2">
     <application>
+        <locale-config>
+            <default-locale>cs</default-locale>
+            <supported-locale>en</supported-locale>
+        </locale-config>
+
         <el-resolver>org.springframework.web.jsf.el.SpringBeanFacesELResolver</el-resolver>
     </application>
 

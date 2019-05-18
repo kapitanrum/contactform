@@ -3,6 +3,7 @@ package cz.lundegaard.contactform.service;
 import cz.lundegaard.contactform.backend.entity.RequestKind;
 import cz.lundegaard.contactform.backend.repository.ContactFormRepository;
 import cz.lundegaard.contactform.backend.repository.RequestKindRepository;
+import cz.lundegaard.contactform.service.dto.ContactFormDto;
 import cz.lundegaard.contactform.service.dto.RequestKindDto;
 import cz.lundegaard.contactform.service.impl.ContactFormServiceImpl;
 import org.junit.Assert;

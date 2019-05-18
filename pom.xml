@@ -85,6 +85,21 @@
             <version>1.3.3</version>
         </dependency>
 
+        <!-- JSR303 -->
+        <dependency>
+            <groupId>javax.validation</groupId>
+            <artifactId>validation-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+
         <!-- spring hot swapping, enable live reload for development -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
