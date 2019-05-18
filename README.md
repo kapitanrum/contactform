@@ -6,17 +6,14 @@ Příklad ukládání formuláře ContactUs
 Spring, Mojarra, Joinfaces, Primefaces, JUnit, Mockito, H2
 
 ## Co se může dál řešit
-- favicon
-- Resource bundle / MessageSource
 - Logger - detailnější logování
 - Templatování v JSF
 - Pokročilejší flow mezi stránkami
 - Implementace springsecurity
 - Error pages
 - Cascade styles (scss)
-- Použití JSR303 (validace) - definovat na DTO objektech
 - Implementace persistentní databáze (zatím použita memory database)
-- Lepší pokrytí unit testy (zatím pouze ukázka)
+- Lepší pokrytí unit testy (zlepšeno + jednoduchý integrační test)
 - Použití object mapping frameworku
 
 ## Kompilace
